@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>TP7: Introduction au Framework Bootstrap</title>
+        
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $('.header').height($(window).height());
+            });
+        </script>
+        
+        
+        
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+    
+    
+    <body>
+        
+        <nav class="navbar navbar-expand-md">
+            <img src="EbayECE.jpg" height="80" width="auto">
+            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="main-navigation">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#">Catégories</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Acheter</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Vendre</a></li>
+            </ul>
+            </div>
+        </nav>
+        
+        
+        
+            
+        <header class="page-header header container-fluid">
+            <div class="overlay"></div>
+            <div class="description">
+            
+                <br>
+                <h1>Bienvenue sur l'Ebay de l'ECE Paris !</h1>
+                <br>
+                <p>
+                AVIONIC was a boyhood dream of ours to connect more people with aviation by making it fascinating for both pilots and passengers. We wanted to create an experience that was more intuitive, more comfortable, more immersive and more compelling.
+                <br><br>
+                <b>Mickaël Gremy &amp; Florian Hilt </b>| Founders &amp; Senior Advisors
+                </p>
+                <br>
+                
+                <button class="btn btn-outline-secondary btn-lg">Learn more !</button>
+              
+            </div>
+        </header>
+        
+        <div class="container features">
+            <div class="row">
+                
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <h3 class="feature-title">Air France - Boeing 747-400</h3>
+                    <img src="B747.jpg" class="img-fluid">
+                    <p class="feature-des">
+                    The Boeing 747 is a large, wide-body (two-aisle) airliner with four wing-mounted engines. Its wings have a high sweep angle of 37.5 degrees for a fast, efficient cruise speed of Mach 0.84 to 0.88, depending on the variant. The sweep also reduces the wingspan, allowing the 747 to use existing hangars.
+                    </p>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <h3 class="feature-title">Air France - Boeing 777-300ER</h3>
+                    <img src="B777.jpg" class="img-fluid">
+                    <p class="feature-des">
+                    The Boeing 777 is a wide-body airliner developed and manufactured by Boeing Commercial Airplanes, commonly referred to as the Triple Seven. The 777 was designed to bridge the gap between Boeing's 767 and 747, and to replace older DC-10s or L-1011s.
+                    </p>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                
+                    <h3 class="feature-title">Contact us !</h3>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Name :" name="">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email :" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="form-control" rows="4">Comments</textarea>
+                    </div>
+
+                    <input type="submit" class="btn btn-secondary btn-block" value="Submit" name="">
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <h6 class="text-uppercase font-weight-bold">More information</h6>
+                        <p>
+                        The Avionic International Headquarters (colloquially known as the Avionic Building and formerly known as the Morton-Thiokol International Building) is a 36-floor skyscraper located in the Near West Side of Chicago. The building, at 100 North Riverside Plaza, is located on the west side of the Chicago River directly across from the downtown Loop.
+                        </p>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                        <p>
+                       	100 North Riverside Plaza | Chicago (Illinois) <br>
+                        avionic@boeingcompany.us <br>
+                        (555) 555-1234-762 <br>
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-copyright text-center">&copy; 2020 Copyright | All Rights Reserved - AVIONIC Inc.</div>
+            </div>
+        </footer>
+
+
+    
+    </body>
+</html>
