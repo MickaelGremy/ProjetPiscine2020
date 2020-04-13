@@ -1,0 +1,180 @@
+body 
+{
+    padding: 0px;
+    margin: 0px;
+    background: #0c070a;
+}
+
+.header 
+{
+    background-image: url('good-night-2661401.jpg');
+    background-size:cover;
+    background-position: center;
+    position:relative;
+}
+
+.overlay 
+{
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.description 
+{
+    left: 50%;
+    position:relative;
+    top: 45%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+}
+
+.description h1 
+{
+    color: darkred;
+}
+
+.description p 
+{
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+description button 
+{
+    border:3px;
+    border-color: red;
+    background-color: darkred;
+    border-radius: 30;
+    color: red;
+}
+
+.description button:hover 
+{
+    border:1px solid #fff;
+    background-color: #fff;
+    color: #000;
+}
+
+
+.features 
+{
+    margin: 4em auto;
+    padding: 1em;
+    position: relative;
+}
+.feature-title 
+{
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.feature-des
+{
+    color: white;
+}
+
+.features img 
+{
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
+}
+
+.features .form-control,
+.features input,
+.features .btn
+{
+    border-radius: 30;
+}
+
+.features .btn 
+{
+    background-color: darkred;
+    border: 1px red;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.features .btn:hover 
+{
+    background-color: red;
+    border: 1px red;
+}
+
+/*--- navigation bar ---*/
+
+.navbar 
+{
+    background:#000;
+}
+
+.nav-link, .navbar-brand 
+{
+    color: white;
+    cursor: pointer;
+}
+
+.nav-link 
+{
+    margin-right: 1em !important;
+}
+
+.nav-link:hover 
+{
+    color: darkred;
+}
+
+.navbar-collapse 
+{
+    justify-content: flex-end;
+}
+
+.page-footer 
+{
+    background-color: "0c070a";
+    color: #ccc;
+    padding: 60px 0 30px;
+}
+
+.footer-copyright 
+{
+    color: #ccc;
+    padding: 40px 0;
+}
+
+@media (max-width: 575.98px) 
+{
+    .description 
+    {
+        left: 0;
+        padding: 0 15px;
+        position: absolute;
+        top: 10%;
+        transform: none;
+        text-align: center;
+    }
+
+    .description h1 
+    {
+        font-size: 2em;
+    }
+
+    .description p 
+    {
+        font-size: 1.2rem;
+    }
+
+    .features 
+    {
+        margin: 0;
+    }  
+}   
