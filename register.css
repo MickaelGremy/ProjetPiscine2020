@@ -10,9 +10,9 @@ label
 }
 
 
-input[type=text], input[type=password] 
+input[type=text], [type=text], [type=text], input[type=password], input[type=password], input[type=text], [type=text], [type=text], input[type=text], input[type=text]
 {
-    width: 25%;
+    width: 100%;
     margin-top: 10px;
     padding: 12px 20px;
     border: 2px solid #AECAFB;
@@ -50,16 +50,14 @@ img.user
 }
 
 
-.container 
+.container-fluid
 {
     padding: 16px;
 }
 
-
-.Bloc
+.title
 {
-    margin-top: 50vh;
-    transform: translateY(-50%);
+    color: black;
 }
 
 
