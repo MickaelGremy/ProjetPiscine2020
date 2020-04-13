@@ -44,23 +44,6 @@ body
     line-height: 1.5;
 }
 
-description button 
-{
-    border:3px;
-    border-color: red;
-    background-color: darkred;
-    border-radius: 30;
-    color: red;
-}
-
-.description button:hover 
-{
-    border:1px solid #fff;
-    background-color: #fff;
-    color: #000;
-}
-
-
 .features 
 {
     margin: 4em auto;
