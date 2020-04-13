@@ -7,7 +7,7 @@ body
 
 .header 
 {
-    background-image: url('good-night-2661401.jpg');
+    background-image: url('AffairesConclues.jpg');
     background-size:cover;
     background-position: center;
     position:relative;
@@ -20,7 +20,7 @@ body
     min-width: 100%;
     left: 0px;
     top: 0px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .description 
