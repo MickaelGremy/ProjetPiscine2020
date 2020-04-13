@@ -112,8 +112,7 @@ body
 
 .nav-link:hover
 {
-    color: darkred;  
-    border-bottom: 2px solid gold;
+    border-bottom: 2px solid #AECAFB;
 }
 
 .navbar-collapse 
@@ -140,9 +139,8 @@ nav a{
 
 nav a:hover
 {
-    color: darkorange;
+    color: white;
     text-decoration: none;
-    
 }
 
 .sous
