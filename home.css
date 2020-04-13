@@ -111,15 +111,58 @@ body
     margin-right: 1em !important;
 }
 
-.nav-link:hover 
+.nav-link:hover
 {
-    color: darkred;
+    color: darkred;  
+    border-bottom: 2px solid gold;
 }
 
 .navbar-collapse 
 {
+    padding-left: 50px;
+    justify-content: flex-start;
+}
+
+.navbar-end
+{
+    padding-right: 20px;
     justify-content: flex-end;
 }
+
+nav ul{
+    list-style-type: none;
+}
+
+nav a{
+    display: block;
+    padding: 10px 0px;
+    color: black;
+}
+
+nav a:hover
+{
+    color: darkorange;
+    text-decoration: none;
+    
+}
+
+.sous
+{
+    display: none;
+    background-color: white;
+    position: absolute;
+    width: auto;
+    z-index: 1000;
+    padding-right: 20px;
+}
+
+.deroulant:hover .sous
+{
+    display: block;
+}
+
+
+
 
 .page-footer 
 {
