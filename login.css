@@ -1,0 +1,73 @@
+body
+{
+    background: #0c070a;
+}
+
+
+label
+{
+    color:white;
+}
+
+
+input[type=text], input[type=password] 
+{
+    width: 25%;
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: 2px solid #AECAFB;
+    border-radius: 20px;
+}
+
+
+button 
+{
+    background-color: #AECAFB;
+    color: white;
+    padding: 14px 20px;
+    border: 2px;
+    border-radius: 20px; 
+    cursor: pointer;
+    width: 10%;
+}
+
+
+button:hover 
+{
+    opacity: 0.8;
+}
+
+
+.imgcontainer 
+{
+    text-align: center;
+}
+
+
+img.user 
+{
+    width: 10%;
+}
+
+
+.container 
+{
+    padding: 16px;
+}
+
+
+.Bloc
+{
+    margin-top: 50vh;
+    transform: translateY(-50%);
+}
+
+
+@media screen and (max-width: 300px) 
+{
+    span.psw 
+    {
+        display: block;
+        float: none;
+    }
+}
