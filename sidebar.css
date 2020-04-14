@@ -40,3 +40,13 @@ input[type="checkbox"]:checked + label:before {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.sidenav {
+    padding: 20px;
+    height: 350px;
+    width: 200px;
+    border-radius: 10px;
+    border:1px dotted black;
+    margin-left: 20px;
+    margin-right: 20px;
+} 

@@ -98,16 +98,10 @@ body
     
     /* Set gray background color and 100% height */
 
-.sidenav {
-    padding-top: 20px;
 
-    height: 500px;
-    margin-left: 50px;
-    margin-right: 40px;
-    border-radius: 10px;
-   border:1px dotted black;
 
-}
+
+
 /*--- navigation bar ---*/
 
 .navbar 
@@ -182,7 +176,6 @@ nav a:hover
     background-color: "0c070a";
     color: #ccc;
     padding: 60px 0 30px;
-    margin-top: 150px;
 }
 
 .footer-copyright 
