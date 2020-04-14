@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 14 avr. 2020 à 15:56
+-- Généré le :  mar. 14 avr. 2020 à 21:58
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -31,19 +31,27 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `acheteur`;
 CREATE TABLE IF NOT EXISTS `acheteur` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `motdepasse` varchar(255) NOT NULL,
-  `adresse` varchar(255) NOT NULL,
-  `ville` varchar(255) NOT NULL,
-  `codepostal` int(11) NOT NULL,
-  `telephone` int(11) NOT NULL,
-  `numcarte` int(20) NOT NULL,
-  `cvc` int(11) NOT NULL,
-  `date` varchar(11) NOT NULL,
+  `Nom` varchar(255) NOT NULL,
+  `Prenom` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Motdepasse` varchar(255) NOT NULL,
+  `Adresse` varchar(255) NOT NULL,
+  `Codepostal` int(11) NOT NULL,
+  `Ville` varchar(255) NOT NULL,
+  `Telephone` int(11) NOT NULL,
+  `Numcarte` bigint(11) NOT NULL,
+  `Cvc` int(11) NOT NULL,
+  `Moisexp` int(11) NOT NULL,
+  `Anneeexp` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `acheteur`
+--
+
+INSERT INTO `acheteur` (`ID`, `Nom`, `Prenom`, `Email`, `Motdepasse`, `Adresse`, `Codepostal`, `Ville`, `Telephone`, `Numcarte`, `Cvc`, `Moisexp`, `Anneeexp`) VALUES
+(15, 'HILT', 'Florian', 'florianhilt@outlook.com', 'D(\"7=sY6?pD#?', '4 rue Desmont Dupont', 92700, 'COLOMBES', 669725049, 1234123412341234, 123, 12, 2021);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
