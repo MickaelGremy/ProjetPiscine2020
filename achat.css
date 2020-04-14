@@ -100,10 +100,13 @@ body
 
 .sidenav {
     padding-top: 20px;
-    background-color: #f1f1f1;
+
     height: 500px;
     margin-left: 50px;
     margin-right: 40px;
+    border-radius: 10px;
+   border:1px dotted black;
+
 }
 /*--- navigation bar ---*/
 
