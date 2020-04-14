@@ -24,7 +24,7 @@ input[type=text], input[type=password]
 }
 
 
-input[type="button"]
+input[type="button"], input[type=submit]
 {
     background-color: #AECAFB;
     color: white;
