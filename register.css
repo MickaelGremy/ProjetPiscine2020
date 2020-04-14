@@ -23,12 +23,12 @@ input, input[type="radio"] + label, input[type="checkbox"] + label:before, selec
 button 
 {
     background-color: #AECAFB;
-    color: black;
+    color: white;
     padding: 14px 20px;
-    border: 2px;
-    border-radius: 20px; 
     cursor: pointer;
     width: auto;
+    border: 2px;
+    border-radius: 20px;
 }
 
 button:hover 
