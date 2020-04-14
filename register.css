@@ -8,6 +8,12 @@ body
     background-color: #0c070a;
 }
 
+.Bloc
+{
+    margin-top: 50vh;
+    transform: translateY(-50%);
+}
+
 input, input[type="radio"] + label, input[type="checkbox"] + label:before, select option, select 
 {
     width: 100%;
