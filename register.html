@@ -1,74 +1,164 @@
 <!DOCTYPE html>
 <html>
     
-    <head>
-        
-        <title>Login Page</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="login.css">
-        
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        
-    </head>
-    
-    <body>
-        
+<head>
+
+    <title>Login Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="register.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+</head>
+
+<body> 
+
+    <center>
+    <h1>Mon Compte</h1>
+    </center>
+
+    <form>
+
+    <div class="row">
+
+        <div class="col">
+
+            <center>
+            <br> <h4>Identité</h4> <br>
+            </center>
+
+            <div class="input-group">
+                <input type="text" placeholder="Nom"/>
+            </div>
+
+            <div class="input-group">
+                <input type="text" placeholder="Prénom"/>
+            </div>
+
+            <div class="input-group">
+                <input type="mail" placeholder="E-mail"/>   
+            </div>
+
+            <div class="input-group">
+                <input type="password" placeholder="Mot de Passe"/>
+            </div>
+
+        </div>
+
+        <div class="col">
+
+            <center>
+            <br> <h4>Adresse</h4> <br>
+            </center>
+
+            <div class="input-group">
+            <input type="text" placeholder="N° de la voie"/>
+            </div>
+
+            <div class="input-group">
+            <input type="text" placeholder="Nom de la voie"/>
+            </div>
+
+            <div class="input-group">
+            <input type="text" placeholder="Code Postal"/>
+            </div>
+
+            <div class="input-group">
+            <input type="text" placeholder="Ville"/>
+            </div>
+
+        </div>
+
+
+        <div class="col">
+
+            <center>
+            <br> <h4>Moyen de Paiement</h4> <br>
+            </center>
+
+            <div class="input-group">
+
+                <input id="payment-method-card" type="radio" name="payment-method" value="card" checked="true"/>
+
+                <label for="payment-method-card"><span><i class="visa"></i>Carte Bleue</span></label>
+
+                <input id="payment-method-chequecadeau" type="radio" name="payment-method" value="chequecadeau"/>
+
+                <label for="payment-method-chequecadeau"> <span><i class="chequecadeau"></i>Chèques ECE</span></label>
+
+            </div>
+
+            <div class="input-group">
+                <input type="text" placeholder="N° de la Carte"/>
+            </div>
+
+
+            <div class="col-half">
+
+                <div class="input-group">
+                    <input type="text" placeholder="CVC"/>
+                </div>
+
+            </div>
+
+            <div class="col-half">
+
+                <div class="input-group">
+
+                <select>
+                    <option>JAN</option>
+                    <option>FEV</option>
+                    <option>MAR</option>
+                    <option>AVR</option>
+                    <option>MAI</option>
+                    <option>JUI</option>
+                    <option>JUI</option>
+                    <option>AOU</option>
+                    <option>SEP</option>
+                    <option>OCT</option>
+                    <option>NOV</option>
+                    <option>DEC</option>
+                </select>
+
+                <select>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col">
+
+            <h4>Conditions d'utilisation</h4>
+
+            <div class="input-group">
+
+                <input id="terms" type="checkbox"/>
+                <label for="terms">Je certifie avoir lu et accepte les CGU d'Ebay ECE afin d'accéder à la plateforme.</label>
+                </div>
+
+            </div>
+
+        </div>
+
         <center>
-
-        <form action=".php" method="post">
-                
-            <div class="imgcontainer">
-            <img src="avatar.jpg" alt="User" class="user">
-            </div>
-
-            <div class="container-fluid">
-            <div class="row">
-
-            <div class="col-lg-6 col-md-6 col-sm-12">
-
-                <label for="Nom">Nom :</label>
-                <input type="text" placeholder="Entrer votre Nom" name="Nom" required> <br><br>
-
-                <label for="Prénom">Prénom :</label>
-                <input type="text" placeholder="Entrer votre Prénom" name="Prénom" required> <br><br>
-
-                <label for="Email">Email :</label>
-                <input type="text" placeholder="Entrer votre E-mail" name="Email" required> <br><br>
-
-                <label for="Password">Mot de Passe :</label>
-                <input type="password" placeholder="Entrer votre Mot de Passe" name="Password" required> <br><br>
-
-                <label for="Password">Mot de Passe :</label>
-                <input type="password" placeholder="Entrer votre Mot de Passe" name="Password" required> <br><br>
-
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-12">
-
-                <label for="AdresseLigne1">Adresse ligne 1 :</label>
-                <input type="text" placeholder="Entrer votre Adresse" name="AdresseLigne1" required> <br><br>
-
-                <label for="AdresseLigne2">Adresse ligne 2 :</label> 
-                <input type="text" placeholder="Entrer votre Adresse" name="AdresseLigne2" required> <br><br>
-
-                <label for="CodePostal">Code Postal :</label>
-                <input type="text" placeholder="Entrer votre Code Postal" name="CodePostal" required> <br><br>
-
-                <label for="Ville">Ville :</label> 
-                <input type="text" placeholder="Entrer votre Ville" name="Ville" required> <br><br>
-
-                <label for="NumérodeTéléphone">N° de Téléphone :</label>
-                <input type="text" placeholder="Entrer votre N° de Téléphone" name="NumérodeTéléphone" required> <br><br>
-
-            </div>
-
-            </div>
-                
-            </div>
-                
-        </form>
-            
+        <a href="home.html"></a><button type="submit"><b>S'inscrire</b></button>
         </center>
-        
-    </body>
+
+    </form>
+
+</body>
