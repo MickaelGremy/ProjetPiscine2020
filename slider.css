@@ -1,8 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 
-html, body { background: #333 url("https://codepen.io/images/classy_fabric.png"); }
-
-
 .slides {
     padding: 0;
     width: auto;
@@ -10,6 +7,7 @@ html, body { background: #333 url("https://codepen.io/images/classy_fabric.png")
     display: block;
     margin: 0 auto;
     position: relative;
+
 }
 
 .slides * {
@@ -18,13 +16,17 @@ html, body { background: #333 url("https://codepen.io/images/classy_fabric.png")
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
-    text-align: center;
-    vertical-align: middle;
+     -webkit-animation:slide 30s infinite;
+    -moz-animation:slide 30s infinite;
+    animation:slide 30s infinite;
 }
 
 .slides input { display: none; }
 
-.slide-container { display: block; }
+.slide-container { 
+    display: block;
+}
+
 
 .slide {
     top: 0;
@@ -35,15 +37,16 @@ html, body { background: #333 url("https://codepen.io/images/classy_fabric.png")
     position: absolute;
 
     transform: scale(0);
-
+    align-content: center;
     transition: all .7s ease-in-out;
 }
 
 
 
 .slide img {
-    width: 100%;
+    width: 115.7%;
     height: 100%;
+    display:block;
 }
 
 .nav label {
@@ -52,7 +55,7 @@ html, body { background: #333 url("https://codepen.io/images/classy_fabric.png")
     display: none;
     position: absolute;
 
-	  opacity: 0;
+    opacity: 0;
     z-index: 9;
     cursor: pointer;
 
@@ -89,6 +92,7 @@ input:checked + .slide-container .nav label { display: block; }
 	height: 11px;
 	display: block;
 	position: absolute;
+	text-align: center;
 }
 
 .nav-dots .nav-dot {
