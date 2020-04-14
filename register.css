@@ -1,0 +1,153 @@
+*{
+    font-family: Avenir, sans-serif;
+}
+
+body 
+{
+    padding: 1em;
+}
+
+
+.Bloc
+{
+    margin-top: 50vh;
+    transform: translateY(-50%);
+}
+
+input, input[type="radio"] + label, input[type="checkbox"] + label:before, select option, select
+{
+    width: 100%;
+    padding: 1em;
+    line-height: 1.4;
+    background-color: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    border-radius: 20px;
+    -webkit-transition: 0.35s ease-in-out;
+    -moz-transition: 0.35s ease-in-out;
+    -o-transition: 0.35s ease-in-out;
+    transition: 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+    
+}
+
+input[type="submit"]
+{
+    background-color: #AECAFB;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+    width: auto;
+    border: 2px;
+    border-radius: 20px;
+    
+}
+
+button:hover 
+{
+    opacity: 0.8;
+}
+
+input:focus 
+{
+    outline: 0;
+    border-color: #AECAFB;
+}
+
+input[type="radio"]
+{
+    display: none;
+    
+}
+
+input[type="radio"] + label, select, input[type="tel"]
+{
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    border-radius: 20px;
+    margin-left:  20px;
+    
+    
+}
+
+
+
+input[type="radio"]:checked + label,
+input:checked + label:before,
+select:focus,
+select:active 
+{
+    background-color: #AECAFB;
+    border-color: #AECAFB;
+    
+}
+
+input[type="checkbox"] 
+{
+    display: none;
+    
+}
+
+input[type="checkbox"] + label 
+{
+    position: relative;
+    display: block;
+    padding-left: 1.6em;
+    
+}
+
+input[type="checkbox"] + label:before 
+{
+    position: absolute;
+    top: 0.2em;
+    left: 0;
+    display: block;
+    width: 1em;
+    height: 1em;
+    padding: 0;
+    content: "";
+    
+}
+
+input[type="checkbox"] + label:after 
+{
+    position: absolute;
+    top: 0.45em;
+    left: 0.2em;
+    font-size: 0.8em;
+    opacity: 0;
+    
+}
+
+select 
+{
+    height: 3.4em;
+    line-height: 2;
+    
+}
+
+select option 
+{
+    background-color: #AECAFB;
+    color: #fff;
+    
+}
+
+.input-group 
+{
+    margin-bottom: 1em;
+    zoom: 1;
+    
+}
+
+
+@media only screen and (max-width: 540px) 
+{
+    
+    .col-half 
+    {
+    width: 100%;
+    padding-right: 0;
+    }
+}
+
