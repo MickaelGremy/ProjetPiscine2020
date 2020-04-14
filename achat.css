@@ -2,7 +2,7 @@ body
 {
     padding: 0px;
     margin: 0px;
-    background: #AECAFB;
+    background: #ccc;
 }
 
 .header 
@@ -93,6 +93,18 @@ body
     border: 1px red;
 }
 
+
+.row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 500px;
+    margin-left: 50px;
+    margin-right: 40px;
+}
 /*--- navigation bar ---*/
 
 .navbar 
@@ -167,6 +179,7 @@ nav a:hover
     background-color: "0c070a";
     color: #ccc;
     padding: 60px 0 30px;
+    margin-top: 150px;
 }
 
 .footer-copyright 
@@ -202,3 +215,61 @@ nav a:hover
         margin: 0;
     }  
 }  
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300);
+
+* {
+  margin:0;
+  padding:0;
+  outline:none;
+  list-style:none;
+  text-decoration:none;
+  box-sizing:border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;  
+}
+
+body {
+  background: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+h2 {
+    text-align:center;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    width: 500px;
+
+    margin:0 auto;
+    position:relative;
+    height: 30px;
+  
+    margin-bottom: 50px;
+    
+}
+
+h2:after {
+  content:"";
+  display: block;
+  height: 80%;
+  width: 100%;
+  background: #AECAFB;
+  position: absolute;
+  top:10px;left:-5px;
+  z-index: -1;
+  animation: monAnim 1s infinite ease-in-out alternate;
+    
+}
+
+
+@keyframes monAnim {
+  0%{transform: translateY(4px) translateX(-12px);}
+  100%{transform: translateY(-12px) translateX(4px);}
+}
