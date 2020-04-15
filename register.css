@@ -21,7 +21,8 @@ input, input[type="radio"] + label, input[type="checkbox"] + label:before, selec
     padding: 1em;
     line-height: 1.4;
     background-color: #f9f9f9;
-    border: 2px solid #AECAFB;
+    border: 1px solid white;
+    color: black;
     border-radius: 20px;
     -webkit-transition: 0.35s ease-in-out;
     -moz-transition: 0.35s ease-in-out;
@@ -57,7 +58,6 @@ input:focus
 input[type="radio"]
 {
     display: none;
-    
 }
 
 input[type="radio"] + label, select, input[type="tel"]
@@ -67,8 +67,6 @@ input[type="radio"] + label, select, input[type="tel"]
     text-align: center;
     border-radius: 20px;
     margin-left:  20px;
-    
-    
 }
 
 
@@ -80,7 +78,6 @@ select:active
 {
     background-color: #AECAFB;
     border-color: #AECAFB;
-    
 }
 
 input[type="checkbox"] 
