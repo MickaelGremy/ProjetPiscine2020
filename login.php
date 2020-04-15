@@ -9,7 +9,7 @@
     //connectez-vous dans votre BDD
     //Rappel: votre serveur = localhost | votre login = root |votre password = <rien>
 
-    $db_handle = mysqli_connect('localhost', 'root', 'root');
+    $db_handle = mysqli_connect('localhost', 'root', '');
     $db_found = mysqli_select_db($db_handle, $database);
 
     if ($_POST["connexion"]) 
@@ -34,8 +34,12 @@
             //regarder s'il y a de résultat
             if (mysqli_num_rows($result) != 0) 
             {
-                header("Location: http://localhost:8888/home.html");
+                header("Location: http://localhost/ProjetPiscine2020/home.html");
             } 
+            else
+            {
+                header("Location: http://localhost/ProjetPiscine2020/register.html");
+            }
         }
         
     else 

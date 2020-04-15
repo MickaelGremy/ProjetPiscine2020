@@ -19,7 +19,7 @@
     //connectez-vous dans votre BDD
     //Rappel: votre serveur = localhost | votre login = root |votre password = <rien>
 
-    $db_handle = mysqli_connect('localhost', 'root', 'root');
+    $db_handle = mysqli_connect('localhost', 'root', '');
     $db_found = mysqli_select_db($db_handle, $database);
 
     if ($_POST["inscription"]) 
@@ -48,43 +48,22 @@
             } 
             else 
             {
-                $sql = "INSERT INTO acheteur(Nom, Prenom, Email, Motdepasse, Adresse, Codepostal, Ville, Telephone, Numcarte, Cvc, Moisexp, Anneeexp) VALUES('$nom', '$prenom', '$email', '$motdepasse', '$adresse', '$codepostal', '$ville', '$telephone', '$numcarte', '$cvc', '$moisexp', '$anneeexp')";
-                
-                $result = mysqli_query($db_handle, $sql);
+                $requete = "INSERT INTO acheteur(Nom, Prenom, Email, Motdepasse, Adresse, Codepostal, Ville, Telephone, Numcarte, Cvc, Moisexp, Anneeexp) VALUES('$nom', '$prenom', '$email', '$motdepasse', '$adresse', '$codepostal', '$ville', '$telephone', '$numcarte', '$cvc', '$moisexp', '$anneeexp')";
+                    
+                 $result = mysqli_query($db_handle, $requete);
             
-                //on affiche l'acheteur ajouté
-                $sql = "SELECT * FROM acheteur";
-                if ($nom != "") 
+                //regarder s'il y a de résultat
+                if (mysqli_num_rows($result) != 0) 
                 {
-                    //on cherche l'acheteur avec param nom et prenom
-                    $sql .= " WHERE Nom LIKE '%$nom%'";
-
-                    if ($prenom != "") 
-                    {
-                        $sql .= " AND Prenom LIKE '%$prenom%'";
-                    }
+                    header("Location: http://localhost/ProjetPiscine2020/register.html");
+                } 
+                else
+                {
+                    header("Location: http://localhost/ProjetPiscine2020/compte.html");
                 }
-                
-                $result = mysqli_query($db_handle, $sql);
-                while ($data = mysqli_fetch_assoc($result)) 
-                {
-                    echo "Informations sur l'acheteur ajouté:" . "<br>";
-                    echo "ID : " . $data['ID'] . "<br>";
-                    echo "Nom : " . $data['Nom'] . "<br>";
-                    echo "Prénom : " . $data['Prenom'] . "<br>";
-                    echo "Email : " . $data['Email'] . "<br>";
-                    echo "Mot de passe : " . $data['Motdepasse'] . "<br>";
-                    echo "Adresse : " . $data['Adresse'] . "<br>";
-                    echo "Code Postal : " . $data['Codepostal'] . "<br>";
-                    echo "Ville : " . $data['Ville'] . "<br>";
-                    echo "Téléphone : " . $data['Telephone'] . "<br>";
-                    echo "Numéro de CB : " . $data['Numcarte'] . "<br>";
-                    echo "CVC : " . $data['Cvc'] . "<br>";
-                    echo "Mois d'expiration : " . $data['Moisexp'] . "<br>";
-                    echo "Année d'expiration : " . $data['Anneeexp'] . "<br>";
-                    echo "<br>";
-                }                
             }
+           
+            
         } 
         else 
         {
