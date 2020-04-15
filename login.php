@@ -18,12 +18,12 @@
         if ($db_found) 
         {
             $sql = "SELECT * FROM acheteur";
-            if ($nom != "") 
+            if ($email != "") 
             {
                 //on cherche le livre avec les paramètres titre et auteur
                 $sql .= " WHERE Email LIKE '%$email%'";
                 
-                if ($prenom != "") 
+                if ($motdepasse != "") 
                 {
                     $sql .= " AND Motdepasse LIKE '$motdepasse'";
                 }
@@ -34,19 +34,14 @@
             //regarder s'il y a de résultat
             if (mysqli_num_rows($result) != 0) 
             {
-                redirect('home.html', 2);
+                header("Location: http://localhost:8888/home.html");
             } 
-            else 
-            {
-                //l'acheteur est déjà enregistrer
-                echo "Vous n'avez pas encore de compte";
-            }
         }
         
-        else 
-        {
-            echo "Database not found";
-        }
+    else 
+    {
+        echo "Database not found";
+    }
     }
     //fermer la connexion
     mysqli_close($db_handle);
