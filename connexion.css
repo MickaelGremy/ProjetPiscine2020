@@ -14,7 +14,7 @@ label
 }
 
 
-input[type=text], input[type=password] 
+input[type=text], input[type=password], input[type=email] 
 {
     width: 25%;
     margin-top: 10px;
@@ -53,17 +53,12 @@ img.user
     width: 10%;
 }
 
-
-.container 
-{
-    padding: 16px;
-}
-
-
 .Bloc
 {
     margin-top: 50vh;
     transform: translateY(-50%);
+    color: white;
+    text-align: center;
 }
 
 
@@ -74,4 +69,11 @@ img.user
         display: block;
         float: none;
     }
+}
+
+.test
+{
+    text-align: center;
+    color: red;
+    margin-top: 40px;
 }

@@ -32,7 +32,7 @@ input, input[type="radio"] + label, input[type="checkbox"] + label:before, selec
     
 }
 
-input[type="submit"]
+input[type="submit"], input[type="button"]
 {
     background-color: #AECAFB;
     color: white;
@@ -147,5 +147,12 @@ select option
     width: 100%;
     padding-right: 0;
     }
+}
+
+.test
+{
+    color: red;
+    text-align: center;
+    margin-top: 20px;
 }
 
