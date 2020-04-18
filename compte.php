@@ -48,9 +48,9 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             <ul class="navbar-nav">
                 <li class="nav-item deroulant"><a class="nav-link" href="#">Catégories</a>
                     <ul class="sous">
-                        <li><a href="#">Ferraille ou trésor</a></li>
-                        <li><a href="#">Bon pour le musée</a></li>
-                        <li><a href="#">Accessoires VIP</a></li>
+                        <li><a href="achat-categorie.php?id=<?php echo $_SESSION['id']; echo"&"; echo"categorie=Ferraille ou Tresor";?>">Ferraille ou trésor</a></li>
+                        <li><a href="achat-categorie.php?id=<?php echo $_SESSION['id']; echo"&"; echo"categorie=Bon pour Musee";?>">Bon pour le musée</a></li>
+                        <li><a href="achat-categorie.php?id=<?php echo $_SESSION['id']; echo"&"; echo"categorie=Accessoire VIP";?>">Accessoires VIP</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -64,7 +64,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             
             <div class="navbar-end" id="main-navigation">
             <ul class="navbar-nav">
-               <li class="nav-item"><a class="nav-link" href="panier.html">Panier</a></li>
+               <li class="nav-item"><a class="nav-link" href="panier.php?id=<?php echo $_SESSION['id']?>">Panier</a></li>
                <li><a class="nav-link" href="deconnexionAcheteur.php">Se deconnecter</a></li>
             </ul>
             </div>

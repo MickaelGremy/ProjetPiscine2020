@@ -45,9 +45,8 @@
 
 
 
-.slide img {
-    width: 115.7%;
-    height: 100%;
+.slide img 
+{
     display:block;
 }
 

@@ -1,0 +1,62 @@
+body 
+{
+    background: #0c070a;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 150px;
+    color: white;
+}
+
+.titre
+{
+    margin: 35px;
+    color: #AECAFB;
+    text-align: center;
+}
+
+.contenu
+{
+    margin-bottom: 20px;
+}
+
+.image
+{
+
+    transform: translateY(5%);
+    padding: 50px;
+    
+}
+
+.text
+{
+    margin: auto;
+    text-align: center;
+}
+
+.box
+{
+    border: 2px solid #AECAFB;
+    border-radius: 10px;
+    padding: 10px;
+    width: auto;
+    text-align: center;
+    margin-top: 35px;
+}
+
+hr
+{
+    height: 0.5px;
+    width: 50%;
+    background-color: #AECAFB;
+    border: none;
+}
+
+input[type="submit"]
+{
+    background-color: #AECAFB;
+    color: white;
+    padding: 14px 20px;
+    border: 2px;
+    border-radius: 20px; 
+    cursor: pointer;
+    margin-top: 30px;
+}

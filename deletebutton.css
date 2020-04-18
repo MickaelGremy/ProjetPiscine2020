@@ -1,0 +1,91 @@
+.btn_wrapper 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b34d4d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.btn 
+{
+    display: none;
+}
+
+.btn_title 
+{
+    display: inline-block;
+    color: #fff;
+    margin-left: 7px;
+    transition: 0.9s;
+}
+
+.btn_icon 
+{
+    position: relative;
+    display: inline-block;
+    height: 0;
+    width: 20px;
+    box-sizing: border-box;
+    border-top: 20px solid #fff;
+    border-right: 2px solid transparent;
+    border-bottom: 0px solid transparent;
+    border-left: 2px solid transparent;
+    transition: 0.9s;
+}
+.btn_icon::before 
+{
+    position: absolute;
+    content: "";
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    top: -23px;
+    left: -4px;
+    transition: 0.9s;
+}
+
+.btn_icon::after 
+{
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    top: -26px;
+    left: 6px;
+    transition: 0.9s;
+}
+
+.btn_wrapper:hover 
+{
+    cursor: pointer;
+}
+
+.btn_wrapper:hover .btn_icon 
+{
+    transform: rotate(90deg);
+}
+
+.btn_wrapper:hover .btn_icon:before 
+{
+    transform: translate(-13px, -3px) rotate(-99deg);
+}
+
+.btn_wrapper:hover .btn_icon:after 
+{
+    transform: translate(-15px, -2px) rotate(-99deg);
+}
+
+.btn_wrapper:hover .btn_title 
+{
+    transform: translateX(-15px);
+}

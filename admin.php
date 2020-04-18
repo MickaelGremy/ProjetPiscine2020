@@ -70,9 +70,9 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             <ul class="navbar-nav">
                 <li class="nav-item deroulant"><a class="nav-link" href="#">Catégories</a>
                     <ul class="sous">
-                        <li><a href="#">Ferraille ou trésor</a></li>
-                        <li><a href="#">Bon pour le musée</a></li>
-                        <li><a href="#">Accessoires VIP</a></li>
+                        <li><a href="connexionAcheteur.php">Ferraille ou trésor</a></li>
+                        <li><a href="connexionAcheteur.php">Bon pour le musée</a></li>
+                        <li><a href="connexionAcheteur.php">Accessoires VIP</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="connexionAcheteur.php">Acheter</a></li>
@@ -115,7 +115,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                         
                         <u><h2>Liste des articles</h2></u>                    
                         
-                        <a href="ajouterArticle.php?id=">
+                        <a href="ajouterArticle.php?id=<?php echo $_SESSION['id']?>">
                         <input type="submit" class="ajouter" value="+ Ajouter un article"></a><br>
                         
                          <?php
@@ -148,6 +148,8 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                             <b>Categorie : </b><?php echo " "; echo $data['Categorie']; ?><br>
 
                             <b>Prix : </b><?php echo " "; echo $data['Prix']; ?>€<br>
+                        
+                            <b>Type de vente : </b><?php echo " "; echo $data['Typedevente']; ?> <br>
 
                             <i><?php echo $data['Description']; ?></i>
 
@@ -184,7 +186,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                         
                         <u><h2>Liste des vendeurs</h2></u>                    
                         
-                        <a href="ajouterArticle.php?id=">
+                        <a href="ajouterVendeur.php?id=<?php echo $_SESSION['id']?>">
                         <input type="submit" class="ajouter" value="+ Ajouter un vendeur"></a><br>
                         
                          <?php

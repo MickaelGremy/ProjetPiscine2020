@@ -4,16 +4,12 @@ session_start();
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=piscine2020', 'root', '');
 if(isset($_GET['id']) AND $_GET['id'] > 0)
 {    
-    $getid = intval($_GET['id']);
-    $verifarticle = $bdd->prepare('SELECT * FROM article');
-    $verifarticle->execute(array($getid));
-    $articleexist = $verifarticle->rowCount();
-    
-    
-    
-    $verifacheteur = $bdd->prepare('SELECT * FROM acheteur WHERE id = ?');
-    $verifacheteur->execute(array($getid));
-    $acheteurinfo = $verifacheteur->fetch();
+    $idacheteur = $_GET['id'];
+    $idcategorie = $_GET['categorie'];
+
+    $afficherarticle = $bdd->prepare("SELECT * FROM article WHERE Categorie = ?");
+    $afficherarticle->execute(array($idcategorie));
+    $articleexist = $afficherarticle->rowCount();
 ?>
 
 
@@ -22,7 +18,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 <html>
     
     <head>
-        <title>Page Achat</title>
+        <title>Page Achat / Ferraile ou Trésor</title>
         
         <meta charset="utf-8">
 
@@ -85,7 +81,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             <input type="radio" name="radio-btn" id="img-1" checked />
             <li class="slide-container">
                 <div class="slide">
-                    <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.15752-9/94385118_864913547315265_5204140378537590784_n.jpg?_nc_cat=111&_nc_sid=b96e70&_nc_ohc=YnxE4vLpeO4AX-e6B6s&_nc_ht=scontent-cdg2-1.xx&oh=b4824501e003c25a23d8ba4a21b8c0f9&oe=5EBFCEC2">
+                    <img src="https://cdn.stocksnap.io/img-thumbs/960w/AKWVXIXFA8.jpg">
                 </div>
                 <div class="nav">
                     <label for="img-6" class="prev">&#x2039;</label>
@@ -169,7 +165,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
         </header>
         
         <div>
-            <h2>Objets à vendre</h2>
+            <h2><?php echo $idcategorie?></h2>
         </div>
         
         <div class="container">    
@@ -179,12 +175,11 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                     <div class="row">
                         
                         
-                        
                         <?php
-        
                         if($articleexist > 0)
                         {
-                            while($data = $verifarticle->fetch())
+
+                            while($data = $afficherarticle->fetch())
                             {
                             ?>
                             <div class="col-sm-3 article">
@@ -211,8 +206,6 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                                 }
                                 ?>
 
-                                <b>Categorie : </b><?php echo " "; echo $data['Categorie']; ?><br>
-
                                 <b>Prix : </b><?php echo " "; echo $data['Prix']; ?>€<br>
 
                                 <b>Type de vente : </b><?php echo " "; echo $data['Typedevente']; ?> <br>
@@ -232,14 +225,15 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                                 <?php
                                 }
 
-                                if(isset($_SESSION['id']) AND $acheteurinfo['id']==$_SESSION['id'])
+
+                                if(isset($_SESSION['id']) AND $idacheteur==$_SESSION['id'])
                                 {
                                 ?>
 
-                                    <a href="ajouterPanier(achat).php?idart=<?php
+                                    <a href="ajouterPanier(achat).php?idart=<?php 
 
                                     echo $data['id']; 
-                                    echo "&idacht="; echo $_SESSION['id']; 
+                                    echo "&idacht="; echo $_SESSION['id'];
                                     echo "&idvend="; echo $data['idVendeur'];
                                     echo "&nom="; echo $data['Nom'];
                                     echo "&categorie="; echo $data['Categorie'];
@@ -250,28 +244,28 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                                     echo "&video="; echo $data['Video'];
 
 
+
                                      ?>">Ajouter au panier</a>
 
-                                <?php
+                            <?php
                                 }
-                                ?>
-
-                            </div>
-                        
+                            ?>
+                            
+                        </div>
                         <?php
                             }
-                            $verifarticle->closeCursor();
+                            $afficherarticle->closeCursor();
                         }
                         else
                         {
                         ?>
                         
                         
-                        
                     </div>
                     
                 </div>          
             </div>
+            
             <br><br>
             <center><h3>Aucun article n'est disponible pour le moment</h3></center>
                         

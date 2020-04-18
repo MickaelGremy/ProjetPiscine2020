@@ -9,23 +9,29 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
     $verifvendeur->execute(array($getid));
     $vendeurinfo = $verifvendeur->fetch();
     $idvendeur = $_GET['id'];
+    
+    $verifadmin = $bdd->prepare('SELECT * FROM administrateur WHERE id = ?');
+    $verifadmin->execute(array($getid));
+    $admininfo = $verifadmin->fetch();
+    $idadmin = $_GET['id'];
   
     if(isset($_POST['ajout']))
     {
             
 
-        if(!empty($_POST['nom']) AND !empty($_POST['categorie']) AND !empty($_POST['prix']) AND !empty($_POST['description']))
+        if(!empty($_POST['nom']) AND !empty($_POST['categorie']) AND !empty($_POST['prix']) AND !empty($_POST['typedevente']) AND !empty($_POST['description']))
         {
             
             $nom = htmlspecialchars($_POST['nom']);
             $categorie = htmlspecialchars($_POST['categorie']);
             $prix = htmlspecialchars($_POST['prix']);
+            $typedevente = htmlspecialchars($_POST['typedevente']);
             $description = htmlspecialchars($_POST['description']);
 
 
 
-            $insertarticle = $bdd->prepare("INSERT INTO article(Nom, Categorie, Prix, Description, idVendeur, Photo, Video) VALUES(?, ?, ?, ?, ?, ?, ?)");
-            $insertarticle->execute(array($nom, $categorie, $prix, $description, $idvendeur, '', ''));
+            $insertarticle = $bdd->prepare("INSERT INTO article(Nom, Categorie, Prix, Typedevente, Description, idVendeur, Photo, Video, idAcheteur) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $insertarticle->execute(array($nom, $categorie, $prix, $typedevente, $description, $idvendeur, '', '', ''));
             $lastId = $bdd->lastInsertId();
 
             
@@ -48,6 +54,59 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             {
                 
                 header('Location: ajouterArticle2.php?id='.$lastId);
+            }
+
+            
+
+
+
+        }
+        else
+        {
+            $erreur = "Tous les champs doivent être remplis";
+        }
+    }
+    
+    
+    if(isset($_POST['ajout(admin)']))
+    {
+            
+
+        if(!empty($_POST['nom']) AND !empty($_POST['categorie']) AND !empty($_POST['prix']) AND !empty($_POST['typedevente']) AND !empty($_POST['description']))
+        {
+            
+            $nom = htmlspecialchars($_POST['nom']);
+            $categorie = htmlspecialchars($_POST['categorie']);
+            $prix = htmlspecialchars($_POST['prix']);
+            $typedevente = htmlspecialchars($_POST['typedevente']);
+            $description = htmlspecialchars($_POST['description']);
+
+
+
+            $insertarticle = $bdd->prepare("INSERT INTO article(Nom, Categorie, Prix, Typedevente, Description, idVendeur, Photo, Video, idAcheteur) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $insertarticle->execute(array($nom, $categorie, $prix, $typedevente, $description, $idvendeur, '', '', ''));
+            $lastId = $bdd->lastInsertId();
+
+            
+            $verifarticle = $bdd->prepare("SELECT * FROM article WHERE nom = ? AND idVendeur = ?");
+            $verifarticle->execute(array($nom, $idvendeur));
+            
+            
+            
+            $articleexist = $verifarticle->rowCount();
+
+            if($articleexist >= 2)
+            {
+                $deletearticle = $bdd->prepare("DELETE FROM article WHERE Nom = ? AND idVendeur = ?" . 'LIMIT 1');
+                $deletearticle->execute(array($nom, $idvendeur));
+                
+                $erreur = "Article déjà présent dans votre catalogue de vente";//Article existe deja
+                
+            }
+            else
+            {
+                
+                header('Location: ajouterArticle2(admin).php?id='.$lastId);
             }
 
             
@@ -111,6 +170,10 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                             <div class="input-group">
                                 <input type="tel" name="prix" placeholder="Prix du produit"/>   
                             </div>
+                            
+                            <div class="input-group">
+                            <input type="text" name="typedevente" placeholder="Type de vente du produit"/>
+                            </div>
 
                             <div class="input-group">
                             <input type="text" name="description" placeholder="Description du produit"/>
@@ -129,10 +192,19 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                 <center>
                     <input type="submit" name="ajout" value="Passer au contenu multimédia">
                 </center>
+  
                 <?php
                     }
-                    else
+                    elseif($_SESSION['id'] AND $admininfo['id']=='99999')
                     {
+                ?>
+                
+                    <center>
+                        <input type="submit" name="ajout(admin)" value="Passer au contenu multimédia">
+                    </center>
+                <?php
+                    }
+                    else{
                 ?>
                     <div class="test">
                         Vous n'avez pas le droit d'ajouter un article pour un autre vendeur
@@ -140,6 +212,9 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                 <?php
                     }
                 ?>
+                
+                
+                
                 
                 
             </form>

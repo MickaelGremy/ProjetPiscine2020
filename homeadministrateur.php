@@ -22,6 +22,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
         <link rel="stylesheet" type="text/css" href="home.css">
+        <link rel="stylesheet" type="text/css" href="navbar.css">
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         
@@ -46,9 +47,9 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             <ul class="navbar-nav">
                 <li class="nav-item deroulant"><a class="nav-link" href="#">Catégories</a>
                     <ul class="sous">
-                        <li><a href="#">Ferraille ou trésor</a></li>
-                        <li><a href="#">Bon pour le musée</a></li>
-                        <li><a href="#">Accessoires VIP</a></li>
+                        <li><a href="connexionAcheteur.php">Ferraille ou trésor</a></li>
+                        <li><a href="connexionAcheteur.php">Bon pour le musée</a></li>
+                        <li><a href="connexionAcheteur.php">Accessoires VIP</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="connexionAcheteur.php">Acheter</a></li>
