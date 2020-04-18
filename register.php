@@ -202,7 +202,7 @@ if(isset($_POST['inscription']))
 
                 <center>
                     <input type="submit" name="inscription" value="S'inscrire">
-                    <a href="connexion.php"><input type="button" name="connexion" value="Se connecter"></a>
+                    <a href="connexionAcheteur.php"><input type="button" name="connexion" value="Se connecter"></a>
                 </center>
 
             </form>

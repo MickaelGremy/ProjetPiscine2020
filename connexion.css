@@ -53,6 +53,12 @@ img.user
     width: 10%;
 }
 
+img.admin
+{
+    width: 7%;
+    margin-bottom: 15px;
+}
+
 .Bloc
 {
     margin-top: 50vh;

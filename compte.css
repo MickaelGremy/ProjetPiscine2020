@@ -14,73 +14,6 @@ body
     background-image: url(background.jpg);
 }
 
-/*--- navigation bar ---*/
-
-.navbar 
-{
-    background:#000;
-    margin-bottom: 50px;
-}
-
-.nav-link, .navbar-brand 
-{
-    color: white;
-    cursor: pointer;
-}
-
-.nav-link 
-{
-    margin-right: 1em !important;
-}
-
-.nav-link:hover
-{
-    border-bottom: 2px solid #AECAFB;
-}
-
-.navbar-collapse 
-{
-    padding-left: 50px;
-    justify-content: flex-start;
-}
-
-.navbar-end
-{
-    padding-right: 20px;
-    justify-content: flex-end;
-}
-
-nav ul{
-    list-style-type: none;
-}
-
-nav a{
-    display: block;
-    padding: 10px 0px;
-    color: black;
-}
-
-nav a:hover
-{
-    color: #AECAFB;
-    text-decoration: none;
-}
-
-.sous
-{
-    display: none;
-    background-color: white;
-    position: absolute;
-    width: auto;
-    z-index: 1000;
-    padding-right: 20px;
-}
-
-.deroulant:hover .sous
-{
-    display: block;
-}
-
 .identifiant{
     height: auto;
     margin-bottom: 20px;
@@ -125,9 +58,3 @@ input[type="submit"]
     border-radius: 20px;
     
 }
-
-.btn
-{
-    align-content: center;
-}
-

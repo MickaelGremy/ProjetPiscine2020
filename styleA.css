@@ -1,0 +1,15 @@
+body 
+{
+    padding: 0px;
+    margin: 0px;
+    background: #0c070a;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 150px;
+    color: white;
+}
+
+.article
+{
+    margin: auto;
+    text-align: center;
+}

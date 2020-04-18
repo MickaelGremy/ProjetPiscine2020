@@ -11,9 +11,6 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 
 ?>
 
-
-
-
 <html>
     
     <head>
@@ -26,6 +23,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
         <link rel="stylesheet" type="text/css" href="compte.css">
+        <link rel="stylesheet" type="text/css" href="navbar.css">
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         
@@ -45,7 +43,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
     <body style="background-color: #0c070a">
         
         <nav class="navbar navbar-expand-md">
-            <a href="home.html"><img src="EbayECE.jpg" height="65" width="auto"></a>
+            <a href="homeacheteur.php?id=<?php echo $_SESSION['id']?>"><img src="EbayECE.jpg" height="65" width="auto"></a>
             <div class="navbar-collapse" id="main-navigation">
             <ul class="navbar-nav">
                 <li class="nav-item deroulant"><a class="nav-link" href="#">Catégories</a>
@@ -55,8 +53,10 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                         <li><a href="#">Accessoires VIP</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="achat.html">Acheter</a></li>
-                <li class="nav-item"><a class="nav-link" href="vente.html">Vendre</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="achat.php?id=<?php echo $_SESSION['id']?>">
+                    Acheter</a></li>
+                <li class="nav-item"><a class="nav-link" href="connexionVendeur.php">Vendre</a></li>
             </ul>
             </div>
             
@@ -65,7 +65,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             <div class="navbar-end" id="main-navigation">
             <ul class="navbar-nav">
                <li class="nav-item"><a class="nav-link" href="panier.html">Panier</a></li>
-               <li><a class="nav-link" href="login.html">Mon Compte</a></li>
+               <li><a class="nav-link" href="deconnexionAcheteur.php">Se deconnecter</a></li>
             </ul>
             </div>
         </nav>
@@ -90,7 +90,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                         
                         <a href=editionprofil.php><input type="submit" name="editerprofil" value="Editer mon Profil"></a>
                         
-                        <a href="deconnexion.php"><input type="submit" name="deconnexion" value="Déconnexion"></a>
+
                             
                         </center>
                         

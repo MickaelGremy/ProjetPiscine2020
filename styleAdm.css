@@ -1,0 +1,48 @@
+@import "font-awesome";
+
+body 
+{
+    padding: 0;
+    margin: 0;
+    color: white;
+    margin-bottom: 150px;
+}
+
+header 
+{
+    position: relative;
+    background-color: #AECAFB;
+    height: 150px;  
+    box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+    padding: 50px;
+    text-align: center;
+    
+}
+
+.ajouter
+{
+    background-color: #AECAFB;
+    color: black;
+    margin-top: 30px;
+    padding: 10px;
+    cursor: pointer;
+    border: 2px;
+    border-radius: 100px;
+    font-size: 25px;
+    margin-bottom: 30px;
+
+}
+
+.blocadmin
+{
+    margin-top: 50px;
+    text-align: center;
+}
+
+hr
+{
+    height: 0.5px;
+    background-color: #AECAFB;
+    border: none;
+    width: 45%
+}
