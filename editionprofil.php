@@ -2,6 +2,7 @@
 
 session_start();
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=piscine2020', 'root', '');
+
 if(isset($_SESSION['id']))
 {
     $verifuser = $bdd->prepare("SELECT * FROM acheteur WHERE id = ?");
@@ -208,7 +209,7 @@ if(isset($_SESSION['id']))
 
 
                        <div class="input-group">
-                        <input type="text" name="newtelephone" placeholder="Numéro de Téléphone" value = "<?php echo $user['Telephone'];?>"/>
+                        <input type="text" pattern="[0-9]{1}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" name="newtelephone" placeholder="Numéro de Téléphone" value = "<?php echo $user['Telephone'];?>"/>
                         </div>
 
 
@@ -234,22 +235,22 @@ if(isset($_SESSION['id']))
                         </div>
 
                         <div class="input-group">
-                            <input type="text" name="newnumcarte" placeholder="N° de la Carte" value = "<?php echo $user['Numcarte'];?>"/>
+                            <input type="text" name="newnumcarte" pattern="[0-9]{16}" minlength="16" maxlength="16" placeholder="N° de la Carte" value = "<?php echo $user['Numcarte'];?>"/>
                         </div>
 
 
                         <div class="input-group">
-                            <input type="text" name="newcvc" placeholder="CVC" 
+                            <input type="text" name="newcvc" pattern="[0-9]{3}"  minlength="3" maxlength="3" placeholder="CVC" 
                             value = "<?php echo $user['Cvc'];?>"/>
                         </div>
 
 
                         <div class="input-group">
 
-                            <input type="tel" name="newmoisexp" placeholder="MM" 
+                            <input type="tel" pattern="[0-1]{1}[0-2]{1}" name="newmoisexp" placeholder="MM" 
                             value = "<?php echo $user['Moisexp'];?>">
 
-                            <input type="tel" name="newanneeexp" placeholder="YYYY" 
+                            <input type="tel" pattern="[2]{1}[0]{1}[2-3]{1}[0-9]{1}" name="newanneeexp" placeholder="YYYY" 
                             value = "<?php echo $user['Anneeexp'];?>">
 
                         </div>
@@ -266,7 +267,7 @@ if(isset($_SESSION['id']))
 
                     <div class="input-group">
 
-                        <input name="cgu" id="terms" type="checkbox"/>
+                        <input name="cgu" id="terms" type="checkbox" required/>
                         <label for="terms">Je certifie que les données saisies sont exactes et confirme vouloir changer mes données en supprimant définitivement les anciennes</label>
                         </div>
 

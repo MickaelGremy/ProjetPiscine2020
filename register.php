@@ -33,7 +33,7 @@ if(isset($_POST['inscription']))
 
                 $insertacheteur = $bdd->prepare("INSERT INTO acheteur(Nom, Prenom, Email, Motdepasse, Adresse, Codepostal, Ville, Telephone, Numcarte, Cvc, Moisexp, Anneeexp) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
                 $insertacheteur->execute(array($nom, $prenom, $email, $motdepasse, $adresse, $codepostal, $ville, $telephone, $numcarte, $cvc ,$moisexp ,$anneeexp));
-                $erreur="Compte créé";
+                $erreur="Compte créé. Connectez-vous pour accéder à voter compte.";
 
             }
 
@@ -94,20 +94,20 @@ if(isset($_POST['inscription']))
                         </center>
 
                         <div class="input-group">
-                            <input type="text" name="nom" placeholder="Nom"/>
+                            <input type="text" name="nom" placeholder="Nom" required/>
                         </div>
 
                         <div class="input-group">
-                            <input type="text" name="prenom" placeholder="Prénom"/>
+                            <input type="text" name="prenom" placeholder="Prénom" required/>
                         </div>
 
                         <div class="input-group">
-                            <input type="email" name="email" placeholder="E-mail"/>   
+                            <input type="email" name="email" placeholder="E-mail" required/>   
                         </div>
 
 
                         <div class="input-group">
-                            <input type="password" name="motdepasse" placeholder="Mot de Passe"/>
+                            <input type="password" name="motdepasse" placeholder="Mot de Passe" required/>
                         </div>
 
                     </div>
@@ -121,23 +121,23 @@ if(isset($_POST['inscription']))
                         </center>
 
                         <div class="input-group">
-                        <input type="text" name="adresse" placeholder="Adresse"/>
+                        <input type="text" name="adresse" placeholder="Adresse" required/>
                         </div>
 
 
 
 
                         <div class="input-group">
-                        <input type="text" name="codepostal" placeholder="Code Postal"/>
+                        <input type="text" name="codepostal" placeholder="Code Postal" required/>
                         </div>
 
                         <div class="input-group">
-                        <input type="text" name="ville" placeholder="Ville"/>
+                        <input type="text" name="ville" placeholder="Ville" required/>
                         </div>
 
 
                        <div class="input-group">
-                        <input type="text" name="telephone" placeholder="Numéro de Téléphone"/>
+                        <input type="text" pattern="[0]{1}[0-9]{1}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" name="telephone" placeholder="N° de Téléphone (0XXXXXXXXX)" required/>
                         </div>
 
 
@@ -163,20 +163,20 @@ if(isset($_POST['inscription']))
                         </div>
 
                         <div class="input-group">
-                            <input type="text" name="numcarte" placeholder="N° de la Carte"/>
+                            <input type="text" name="numcarte" pattern="[0-9]{16}" minlength="16" maxlength="16" placeholder="N° de la Carte" required/>
                         </div>
 
 
                         <div class="input-group">
-                            <input type="text" name="cvc" placeholder="CVC"/>
+                            <input type="text" name="cvc" pattern="[0-9]{3}" minlength="3" maxlength="3" placeholder="CVC" required/>
                         </div>
 
 
                         <div class="input-group">
 
-                            <input type="tel" name="moisexp" placeholder="MM">
+                            <input type="tel" pattern="[0-1]{1}[0-2]{1}" name="moisexp" placeholder="MM" required>
 
-                            <input type="tel" name="anneeexp" placeholder="YYYY">
+                            <input type="tel" pattern="[2]{1}[0]{1}[2-3]{1}[0-9]{1}" name="anneeexp" placeholder="YYYY" required>
 
                         </div>
 
@@ -192,7 +192,7 @@ if(isset($_POST['inscription']))
 
                     <div class="input-group">
 
-                        <input name="cgu" id="terms" type="checkbox"/>
+                        <input name="cgu" id="terms" type="checkbox" required/>
                         <label for="terms">Je certifie avoir lu et accepte les CGU d'Ebay ECE afin d'accéder à la plateforme.</label>
                         </div>
 

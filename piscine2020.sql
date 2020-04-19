@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 18 avr. 2020 à 20:51
+-- Généré le :  Dim 19 avr. 2020 à 20:41
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -44,17 +44,15 @@ CREATE TABLE IF NOT EXISTS `acheteur` (
   `Moisexp` int(11) NOT NULL,
   `Anneeexp` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `acheteur`
 --
 
 INSERT INTO `acheteur` (`id`, `Nom`, `Prenom`, `Email`, `Motdepasse`, `Adresse`, `Codepostal`, `Ville`, `Telephone`, `Numcarte`, `Cvc`, `Moisexp`, `Anneeexp`) VALUES
-(34, 'Hilt', 'Florian', 'florian.hilt@edu.ece.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '4 rue Desmont Dupont', 92700, 'Colombes', 654321345, 111111111111, 111, 12, 2021),
-(35, 'Gremy', 'Mickael', 'gremymicka@edu.ece.fr', '75d4c9b02467d96bc2ea6d655eb983d5a7a97a9b', '4 rue Desmont', 92700, 'Colombes', 654321345, 1234123412341234, 142, 1, 1999),
-(36, 'Boudjemai', 'Illyas', 'illyas.boudjemai@edu.ece.fr', '323621a00c94f0d1c848e8962af7adbe478f274e', '46 rue du general de gaulle', 94430, 'Chennevieres', 770972413, 3412564789067865, 657, 7, 2022),
-(37, 'Trouducul', 'Annus', 'anutrouduc@metlamoidanslefion.com', 'd142ecd924d8aa1c828cfa46db7ff1f3f21488b5', '10 rue du Fion', 696969, 'Troudbal', 1001001, 789456123, 123, 12, 2024);
+(38, 'Hilt', 'Florian', 'florian.hilt@edu.ece.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '4 rue Desmont Dupont', 92700, 'Colombes', 654321345, 1234123412341239, 444, 12, 2021),
+(39, 'Ã©loi', 'Florian', 'florian.hilt@edu.ece', '92f2fd99879b0c2466ab8648afb63c49032379c1', '4 rue Desmont Dupont', 92700, 'Colombes', 654321345, 4444444444444444, 444, 10, 2022);
 
 -- --------------------------------------------------------
 
@@ -96,15 +94,17 @@ CREATE TABLE IF NOT EXISTS `article` (
   `Video` varchar(255) NOT NULL,
   `idAcheteur` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=174 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=188 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `article`
 --
 
 INSERT INTO `article` (`id`, `Nom`, `Categorie`, `Prix`, `Typedevente`, `Description`, `idVendeur`, `Photo`, `Video`, `idAcheteur`) VALUES
-(173, 'Vase en cristal', 'Accessoire VIP', 5400, 'Achat immediat', 'Rare vas en cristal', 8, '', '', ''),
-(172, 'Boite en or', 'Bon pour Musee', 1800, 'Negociation', 'Petite boite en or 24 carats', 8, '', '', '');
+(177, 'Chaise en bois', 'Ferraille ou Tresor', 1200, 'Achat immediat', 'Joli Gremy sauvage', 8, '177.jpg', '', ''),
+(187, 'Hilt', 'Ferraille ou Tresor', 1400, 'Bon pour Musee', 'Jolie petite chaise en bois', 8, '175.png', '', ''),
+(185, 'Vase en cristal', 'Accessoire VIP', 5400, 'Achat immediat', 'Rare vas en cristal', 8, '', '', ''),
+(181, 'Boite en or', 'Bon pour Musee', 1800, 'Negociation', 'Petite boite en or 24 carats', 8, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `Video` varchar(255) NOT NULL,
   `Somme` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -145,14 +145,16 @@ CREATE TABLE IF NOT EXISTS `vendeur` (
   `Profil` varchar(255) NOT NULL,
   `Fond` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `vendeur`
 --
 
 INSERT INTO `vendeur` (`id`, `Pseudo`, `Nom`, `Prenom`, `Email`, `Profil`, `Fond`) VALUES
-(8, 'micka', 'Gremy', 'Mickael', 'mickagremy@outlook.com', '8.gif', '');
+(10, 'illyas', 'Boudjemai', 'Illyas', 'illyas.boudjemai@edu.ece.fr', '', ''),
+(8, 'micka', 'Gremy', 'Mickael', 'mickagremy@outlook.com', '8.gif', '8.png'),
+(9, 'flo', 'Hilt', 'Florian', 'florian.hilt@edu.ece.fr', '', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

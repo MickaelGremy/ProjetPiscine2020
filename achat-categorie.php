@@ -3,13 +3,39 @@
 session_start();
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=piscine2020', 'root', '');
 if(isset($_GET['id']) AND $_GET['id'] > 0)
-{    
+{  
+    
     $idacheteur = $_GET['id'];
     $idcategorie = $_GET['categorie'];
+    $checked = "checked";
 
-    $afficherarticle = $bdd->prepare("SELECT * FROM article WHERE Categorie = ?");
-    $afficherarticle->execute(array($idcategorie));
-    $articleexist = $afficherarticle->rowCount();
+    
+    if(!empty($_POST['prixcroi']))
+    {
+        $verifarticle = $bdd->prepare('SELECT * FROM article WHERE Categorie = ? ORDER BY Prix ASC');
+        $verifarticle->execute(array($idcategorie));
+    }
+    
+    if(!empty($_POST['prixdecroi']))
+    {
+        $verifarticle = $bdd->prepare('SELECT * FROM article WHERE Categorie = ? ORDER BY Prix DESC');
+        $verifarticle->execute(array($idcategorie));
+    }
+    
+    if(!empty($_POST['chercher']))
+    {
+        $nom = htmlspecialchars($_POST['chercher']);
+        $verifarticle = $bdd->prepare('SELECT * FROM article WHERE Nom = ? AND Categorie = ?');
+        $verifarticle->execute(array($nom, $idcategorie));
+    }
+    
+    if(empty($_POST['prixcroi']) AND empty($_POST['prixdecroi']) AND empty($_POST['chercher']))
+    {
+        $verifarticle = $bdd->prepare('SELECT * FROM article WHERE Categorie = ?');
+        $verifarticle->execute(array($idcategorie));
+    }
+    
+    $articleexist = $verifarticle->rowCount();
 ?>
 
 
@@ -30,6 +56,9 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
         <link rel="stylesheet" type="text/css" href="slider.css">
         <link rel="stylesheet" type="text/css" href="navbar.css">
         <link rel="stylesheet" type="text/css" href="animtitre.css">
+        <link rel="stylesheet" type="text/css" href="tri.css">
+        <link rel="stylesheet" type="text/css" href="searchbox.css">
+        
         
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -81,7 +110,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             <input type="radio" name="radio-btn" id="img-1" checked />
             <li class="slide-container">
                 <div class="slide">
-                    <img src="https://cdn.stocksnap.io/img-thumbs/960w/AKWVXIXFA8.jpg">
+                    <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.15752-9/94385118_864913547315265_5204140378537590784_n.jpg?_nc_cat=111&_nc_sid=b96e70&_nc_ohc=YnxE4vLpeO4AX-e6B6s&_nc_ht=scontent-cdg2-1.xx&oh=b4824501e003c25a23d8ba4a21b8c0f9&oe=5EBFCEC2">
                 </div>
                 <div class="nav">
                     <label for="img-6" class="prev">&#x2039;</label>
@@ -92,7 +121,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             <input type="radio" name="radio-btn" id="img-2" />
             <li class="slide-container">
                 <div class="slide">
-                    <img src="https://cdn.stocksnap.io/img-thumbs/960w/AKWVXIXFA8.jpg">
+                    <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.15752-9/94385118_864913547315265_5204140378537590784_n.jpg?_nc_cat=111&_nc_sid=b96e70&_nc_ohc=YnxE4vLpeO4AX-e6B6s&_nc_ht=scontent-cdg2-1.xx&oh=b4824501e003c25a23d8ba4a21b8c0f9&oe=5EBFCEC2">
                 </div>
                 
                 <div class="nav">
@@ -105,7 +134,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             
             <li class="slide-container">
                 <div class="slide">
-                    <img src="https://cdn.stocksnap.io/img-thumbs/960w/VVHE6VHMAW.jpg" />
+                    <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.15752-9/94385118_864913547315265_5204140378537590784_n.jpg?_nc_cat=111&_nc_sid=b96e70&_nc_ohc=YnxE4vLpeO4AX-e6B6s&_nc_ht=scontent-cdg2-1.xx&oh=b4824501e003c25a23d8ba4a21b8c0f9&oe=5EBFCEC2" />
                 </div>
 
                 <div class="nav">
@@ -118,7 +147,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             
             <li class="slide-container">
                 <div class="slide">
-                    <img src="https://cdn.stocksnap.io/img-thumbs/960w/TPLJK7JPRR.jpg">
+                    <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.15752-9/94385118_864913547315265_5204140378537590784_n.jpg?_nc_cat=111&_nc_sid=b96e70&_nc_ohc=YnxE4vLpeO4AX-e6B6s&_nc_ht=scontent-cdg2-1.xx&oh=b4824501e003c25a23d8ba4a21b8c0f9&oe=5EBFCEC2">
                 </div>
                 
                 <div class="nav">
@@ -131,7 +160,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             
             <li class="slide-container">
             <div class="slide">
-            <img src="https://cdn.stocksnap.io/img-thumbs/960w/XJ2BKV9ASS.jpg">
+            <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.15752-9/94385118_864913547315265_5204140378537590784_n.jpg?_nc_cat=111&_nc_sid=b96e70&_nc_ohc=YnxE4vLpeO4AX-e6B6s&_nc_ht=scontent-cdg2-1.xx&oh=b4824501e003c25a23d8ba4a21b8c0f9&oe=5EBFCEC2">
             </div>
             <div class="nav">
             <label for="img-4" class="prev">&#x2039;</label>
@@ -143,7 +172,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             
             <li class="slide-container">
                 <div class="slide">
-                    <img src="https://cdn.stocksnap.io/img-thumbs/960w/XJ2BKV9ASS.jpg">
+                    <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.15752-9/94385118_864913547315265_5204140378537590784_n.jpg?_nc_cat=111&_nc_sid=b96e70&_nc_ohc=YnxE4vLpeO4AX-e6B6s&_nc_ht=scontent-cdg2-1.xx&oh=b4824501e003c25a23d8ba4a21b8c0f9&oe=5EBFCEC2">
                 </div>
                 <div class="nav">
                     <label for="img-5" class="prev">&#x2039;</label>
@@ -168,6 +197,65 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             <h2><?php echo $idcategorie?></h2>
         </div>
         
+        <form method="post" action=''>
+
+
+
+            <div class="text-center">
+
+                <div class=" container tri box">
+                    <h3>Trier selon : </h3><br><br>
+                    <section class="section section--tuli">        
+                        <div class="toggle-button toggle-button--tuli">
+                            <input id="toggleButton11" name="prixcroi" type="checkbox"
+
+                            <?php
+                            if(!empty($_POST['prixcroi']))
+                            {
+                                echo $checked;
+                            }
+                            ?>
+                            >
+
+                            <label for="toggleButton11">Prix croissant</label>
+                            <div class="toggle-button__icon"></div>
+                        </div>
+
+                        <div class="toggle-button toggle-button--tuli">
+                            <input id="toggleButton12" name="prixdecroi" type="checkbox"
+
+
+                            <?php
+                            if(!empty($_POST['prixdecroi']))
+                            {
+                                echo $checked;
+                            }
+                            ?>
+
+                            >
+
+
+                            <label for="toggleButton12">Prix décroissant</label>
+                            <div class="toggle-button__icon"></div>
+
+                        </div>
+
+                    </section>
+
+                    <br>
+                    <div class="search-box">
+
+                       <input type="search" name="chercher" placeholder="Chercher"/>
+
+                    </div><br>
+
+                    <input class="confirmer" type="submit" name="confirmer" value="Appliquer">
+             
+                </div>
+            </div>
+            
+        </form>
+        
         <div class="container">    
             <div class="row content">
                 
@@ -179,7 +267,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                         if($articleexist > 0)
                         {
 
-                            while($data = $afficherarticle->fetch())
+                            while($data = $verifarticle->fetch())
                             {
                             ?>
                             <div class="col-sm-3 article">
@@ -230,7 +318,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                                 {
                                 ?>
 
-                                    <a href="ajouterPanier(achat).php?idart=<?php 
+                                    <a href="ajouterPanier(categorie).php?idart=<?php 
 
                                     echo $data['id']; 
                                     echo "&idacht="; echo $_SESSION['id'];
@@ -254,7 +342,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                         </div>
                         <?php
                             }
-                            $afficherarticle->closeCursor();
+                            $verifarticle->closeCursor();
                         }
                         else
                         {

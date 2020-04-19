@@ -46,6 +46,10 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 
         <link rel="stylesheet" type="text/css" href="home.css">
         <link rel="stylesheet" type="text/css" href="styleAdm.css">
+        <link rel="stylesheet" type="text/css" href="navbar.css">
+        <link rel="stylesheet" type="text/css" href="scroll.css">
+        
+        
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         
@@ -118,68 +122,72 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                         <a href="ajouterArticle.php?id=<?php echo $_SESSION['id']?>">
                         <input type="submit" class="ajouter" value="+ Ajouter un article"></a><br>
                         
-                         <?php
-                        while($data = $verifarticle->fetch())
-                        {
-                        ?>
+                        <div class="scroll-bar-wrap">
+                            <div class="scroll-box">
                             
-                            <?php 
-            
-                            if(!empty($data['Photo']))
+                        
+                             <?php
+                            while($data = $verifarticle->fetch())
                             {
                             ?>
-                                <img src="article/photo/<?php echo $data['Photo'];?>" style="width:20%"><br>
+
+                                <?php 
+
+                                if(!empty($data['Photo']))
+                                {
+                                ?>
+                                    <img src="article/photo/<?php echo $data['Photo'];?>" style="width:20%"><br>
+
+                                <?php
+
+                                }
+                                else
+                                {
+                                ?>
+
+                                    <img src="https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061132_960_720.png" width="32%" ><br>
+
+                                <?php
+                                }
+                                ?>
+
+                                <b>Nom : </b><?php echo " "; echo $data['Nom']; ?> <br>
+
+                                <b>Categorie : </b><?php echo " "; echo $data['Categorie']; ?><br>
+
+                                <b>Prix : </b><?php echo " "; echo $data['Prix']; ?>€<br>
+
+                                <b>Type de vente : </b><?php echo " "; echo $data['Typedevente']; ?> <br>
+
+                                <i><?php echo $data['Description']; ?></i>
+
+                                <br>
+
+
+                                <?php
+                                if(!empty($data['Video']))
+                                {
+                                ?>
+                                    <a href="article/video/<?php echo $data['Video']; ?>">Vidéo descriptive</a>
+
+                                <?php
+                                }
+                                ?>
+
+                                 <a href="supprimerArticle(admin).php?idart=<?php echo $data['id']; ?>">Supprimer</a>
+
+                                <br><br> 
+
+                                <hr>
+
 
                             <?php
-
                             }
-                            else
-                            {
-                            ?>
-                            
-                                <img src="https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061132_960_720.png" width="32%" ><br>
-                            
-                            <?php
-                            }
+                            $verifarticle->closeCursor();
                             ?>
                         
-                            <b>Nom : </b><?php echo " "; echo $data['Nom']; ?> <br>
-
-                            <b>Categorie : </b><?php echo " "; echo $data['Categorie']; ?><br>
-
-                            <b>Prix : </b><?php echo " "; echo $data['Prix']; ?>€<br>
-                        
-                            <b>Type de vente : </b><?php echo " "; echo $data['Typedevente']; ?> <br>
-
-                            <i><?php echo $data['Description']; ?></i>
-
-                            <br>
-
-
-                            <?php
-                            if(!empty($data['Video']))
-                            {
-                            ?>
-                                <a href="article/video/<?php echo $data['Video']; ?>">Vidéo descriptive</a>
-                        
-                            <?php
-                            }
-                            ?>
-                        
-                             <a href="supprimerArticle(admin).php?idart=<?php echo $data['id']; ?>">Supprimer</a>
-                        
-                            <br><br> 
-
-                            <hr>
-                            
-                        
-                        <?php
-                        }
-                        $verifarticle->closeCursor();
-                        ?>
-                        
-                        
-
+                            </div>  
+                        </div>
                     </div>
                     
                     <div class="col-sm-6">                        
@@ -188,6 +196,11 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                         
                         <a href="ajouterVendeur.php?id=<?php echo $_SESSION['id']?>">
                         <input type="submit" class="ajouter" value="+ Ajouter un vendeur"></a><br>
+                        
+                        
+                        
+                     <div class="scroll-bar-wrap">
+                            <div class="scroll-box">
                         
                          <?php
                         while($data = $verifvendeur->fetch())
@@ -229,23 +242,22 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 
                                 <br><br> 
                         
-                        <hr>
-                                                    
+                    
+                             <hr>                       
 
                         <?php
                         }
                         $verifarticle->closeCursor();
                         ?>
-
+                                
+                                
+                        </div>
                     </div>
+                </div>
             </div>
         </div>
         
-        
-       
 
-
-    
     </body>
 </html>
 

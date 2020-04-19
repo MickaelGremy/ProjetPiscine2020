@@ -48,6 +48,8 @@
 .slide img 
 {
     display:block;
+    width: 115.7%;
+    height: 450px;
 }
 
 .nav label {

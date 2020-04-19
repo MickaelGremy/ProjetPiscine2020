@@ -19,7 +19,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
     {
             
 
-        if(!empty($_POST['nom']) AND !empty($_POST['categorie']) AND !empty($_POST['prix']) AND !empty($_POST['typedevente']) AND !empty($_POST['description']))
+        if(!empty($_POST['nom']) AND ($_POST['categorie']!='default') AND !empty($_POST['prix']) AND ($_POST['typedevente']!='default') AND !empty($_POST['description']))
         {
             
             $nom = htmlspecialchars($_POST['nom']);
@@ -72,7 +72,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
     {
             
 
-        if(!empty($_POST['nom']) AND !empty($_POST['categorie']) AND !empty($_POST['prix']) AND !empty($_POST['typedevente']) AND !empty($_POST['description']))
+        if(!empty($_POST['nom']) AND ($_POST['categorie']!='default') AND !empty($_POST['prix']) AND ($_POST['typedevente']!='default') AND !empty($_POST['description']))
         {
             
             $nom = htmlspecialchars($_POST['nom']);
@@ -164,15 +164,23 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                             </div>
 
                             <div class="input-group">
-                                <input type="text" name="categorie" placeholder="Catégorie du produit"/>
-                            </div>
-
-                            <div class="input-group">
-                                <input type="tel" name="prix" placeholder="Prix du produit"/>   
+                                <select name="categorie">
+                                    <option value="Ferraille ou Tresor">Ferraille ou Trésor</option>
+                                    <option value="Bon pour Musee">Bon pour le musée</option>
+                                    <option value="Accessoire VIP">Accessoire VIP</option>
+                                </select>  
                             </div>
                             
                             <div class="input-group">
-                            <input type="text" name="typedevente" placeholder="Type de vente du produit"/>
+                            <input type="tel" name="prix" placeholder="Prix du produit"/>
+                            </div>
+                            
+                            <div class="input-group">
+                                <select name="typedevente">
+                                    <option value="Achat immediat">Achat immédiat</option>
+                                    <option disabled value="Enchère">Enchère - Bientôt disponible !</option>
+                                    <option disabled value="Negociation">Négociation - Bientôt disponible !</option>
+                                </select>
                             </div>
 
                             <div class="input-group">

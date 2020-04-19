@@ -56,7 +56,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
     <body>
         
         <nav class="navbar navbar-expand-md">
-            <a href="home.php?id=<?php echo $_SESSION['id']?>"><img src="EbayECE.jpg" height="65" width="auto"></a>
+            <a href="homeacheteur.php?id=<?php echo $_SESSION['id']?>"><img src="EbayECE.jpg" height="65" width="auto"></a>
             <div class="navbar-collapse" id="main-navigation">
             <ul class="navbar-nav">
                 <li class="nav-item deroulant"><a class="nav-link" href="#">Catégories</a>
@@ -166,25 +166,25 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                         
                         <br>
                         
+                        <a href="supprimerPanier<?php
+                    
+                            echo "?idacht="; echo $_SESSION['id'];
+                            echo "&idart="; echo $data['idArticle'];
+                            echo "&idvend="; echo $data['idVendeur'];
+                            echo "&nom="; echo $data['Nom'];
+                            echo "&categorie="; echo $data['Categorie'];
+                            echo "&prix="; echo $data['Prix']; 
+                            echo "&typedevente="; echo $data['Typedevente'];
+                            echo "&description="; echo $data['Description'];
+                            echo "&photo="; echo $data['Photo'];
+                            echo "&video="; echo $data['Video'];
+                            ?>">
+                            
                         <div class="btn_wrapper">
                         <span class="btn_icon"></span>
-                        <label class="btn_title" for="btn">delete</label>
-                        <a style="color: #FF0000" href="supprimerPanier<?php
-                    
-                        echo "?idacht="; echo $_SESSION['id'];
-                        echo "&idart="; echo $data['idArticle'];
-                        echo "&idvend="; echo $data['idVendeur'];
-                        echo "&nom="; echo $data['Nom'];
-                        echo "&categorie="; echo $data['Categorie'];
-                        echo "&prix="; echo $data['Prix']; 
-                        echo "&typedevente="; echo $data['Typedevente'];
-                        echo "&description="; echo $data['Description'];
-                        echo "&photo="; echo $data['Photo'];
-                        echo "&video="; echo $data['Video'];
-                        ?>">
-                               
-                        <button  class="btn" id="btn"></button></a> 
-                        </div>
+                        
+                        <button  class="btn" id="btn"></button> 
+                        </div></a>
                     
                     
                     </div>
