@@ -342,7 +342,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                                     echo "&video="; echo $data['Video'];
 
 
-                                     ?>">Ajouter au panier</a>
+                                     ?>">Ajouter au panier</a><br><br><br>
 
                                 <?php
                                 }

@@ -21,12 +21,6 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
     
     if(isset($_SESSION['id']) AND $admininfo['id']==$_SESSION['id'])
     {
-                        
-    
-    
-    
-
-
 
 ?>
 
@@ -256,7 +250,6 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                 </div>
             </div>
         </div>
-        
 
     </body>
 </html>

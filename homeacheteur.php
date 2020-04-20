@@ -3,10 +3,15 @@
 session_start();
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=piscine2020', 'root', '');
 if(isset($_GET['id']) AND $_GET['id'] > 0)
-{   
+{ 
+    
+    $getid = intval ($_GET['id']);
+    $verifacheteur = $bdd->prepare('SELECT * FROM acheteur WHERE id = ?');
+    $verifacheteur->execute(array($getid));
+    $acheteurinfo = $verifacheteur->fetch();
     
     
-    ?>
+?>
 
 
 <!DOCTYPE html>
@@ -62,7 +67,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             <div class="navbar-end" id="main-navigation">
             <ul class="navbar-nav">
                <li class="nav-item"><a class="nav-link" href="panier.php?id=<?php echo $_SESSION['id']?>">Panier</a></li>
-                <li class="nav-item"><a class="nav-link" href="compte.php?id=<?php echo $_SESSION['id']?>">Mon compte</a></li>
+                <li class="nav-item"><a class="nav-link" href="compte.php?id=<?php echo $_SESSION['id']?>">Bonjour <?php echo $acheteurinfo['Prenom']?></a></li>
             </ul>
             </div>
         </nav>

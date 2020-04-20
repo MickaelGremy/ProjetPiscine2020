@@ -112,6 +112,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
         <link rel="stylesheet" type="text/css" href="navbar.css">
         
         <link rel="stylesheet" type="text/css" href="styleV.css">
+        <link rel="stylesheet" type="text/css" href="scrollV.css">
         
         
         
@@ -187,164 +188,194 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
         
         <div class="container">  
         
-            
-            <?php 
-            
-                if(!empty($vendeurinfo['Profil']))
-                {
-                ?>
-                    <img class="imgprofil" src="vendeur/avatar/<?php echo $vendeurinfo['Profil'];?>" width="100"/>
-            
-                <?php
-                    
-                    }
+            <div class="infoV">
+                <?php 
 
-            ?>
-            <br>
-            <b>Nom :</b><?php echo " "; echo $vendeurinfo['Nom']; ?><br>
-            <b>Prénom :</b><?php echo " "; echo $vendeurinfo['Prenom']; ?><br><br>
-            <b>Pseudo de vente :</b><?php echo " "; echo $vendeurinfo['Pseudo']; ?><br>
-            <b>Email de vente : </b><?php echo " "; echo $vendeurinfo['Email']; ?><br>
-            
-            <br>
+                    if(!empty($vendeurinfo['Profil']))
+                    {
+                    ?>
+                        <img class="imgprofil" src="vendeur/avatar/<?php echo $vendeurinfo['Profil'];?>" width="100"/>
+
+                    <?php
+
+                        }
+
+                ?>
+                <br>
+                <b>Nom :</b><?php echo " "; echo $vendeurinfo['Nom']; ?><br>
+                <b>Prénom :</b><?php echo " "; echo $vendeurinfo['Prenom']; ?><br><br>
+                <b>Pseudo de vente :</b><?php echo " "; echo $vendeurinfo['Pseudo']; ?><br>
+                <b>Email de vente : </b><?php echo " "; echo $vendeurinfo['Email']; ?>
+            </div>
+                
+                
+            <br><br>
             <hr>
             <br>
-            
+
+                
+                
+                
             <?php
-                if(isset($_SESSION['id']) AND $vendeurinfo['id']==$_SESSION['id'])
-                {
+            if(isset($_SESSION['id']) AND $vendeurinfo['id']==$_SESSION['id'])
+            {
             ?>
-            <form method="post" action="" enctype="multipart/form-data">
-            
-            <label><b>Choisir une image de profil : </b></label><br>
-            <input type="file" name="avatar"><br>
                 
-            <div class="test">
-
-                <?php
-
-                    if(isset($erreur1))
-                    {
-                        echo $erreur1;
-                    }
-
-                ?>
-
-            </div>
-                
-            <input type="submit" name="okprofil" value="OK" class="btnprofil"><br>
-                
-            </form>
-            
-            
-            <form method="post" action="" enctype="multipart/form-data">
-            
-            <label><b>Choisir une image de fond : </b></label><br>
-            <input type="file" name="fond"><br>
+            <div class="col-sm-12">
+                <div class="row">
                     
-            <div class="test">
-
-                <?php
-    
-                    if(isset($erreur2))
-                    {
-                        echo $erreur2;
-                    }
-    
-                ?>
-
-            </div>
-                
-            <input type="submit" name="okfond" value="OK" class="btnprofil"><br>
-                
-            </form>
-            
-            <?php
                     
-                }
-    
-            ?>
-    
-            
-            <div class="row content">
-                
-                <div class="col-sm-12">
-                    <div class="row">
+                    <div class="col-sm-6">
                         
-                        <?php
-                        while($data = $verifarticle->fetch())
-                        {
-                        ?>
-                        <div class="col-sm-3 article">
-
-                            <h5> <?php echo " "; echo $data['Nom']; ?><br></h5>
-                            
-                            <?php 
+                        <form method="post" action="" enctype="multipart/form-data">
             
-                                if(!empty($data['Photo']))
-                                {
-                            ?>
-                                    <img src="article/photo/<?php echo $data['Photo'];"" ?>" style="width:100%">
+                            <label><b>Choisir une image de profil : </b></label><br>
+                            <input type="file" name="avatar"><br>
+
+                            <div class="test">
+
+                                <?php
+
+                                    if(isset($erreur1))
+                                    {
+                                        echo $erreur1;
+                                    }
+
+                                ?>
+
+                            </div>
+
+                            <input type="submit" name="okprofil" value="OK" class="btnprofil"><br>
+
+                        </form>
+                
+                    </div>
+                    
+                    <div class="col-sm-6">                        
+                        
+                        <form method="post" action="" enctype="multipart/form-data">
+
+                        <label><b>Choisir une image de fond : </b></label><br>
+                        <input type="file" name="fond"><br>
+
+                        <div class="test">
 
                             <?php
 
+                                if(isset($erreur2))
+                                {
+                                    echo $erreur2;
                                 }
-                                else
-                                {
-                            ?>
-                            
-                                <img src="https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061132_960_720.png" width="103%" >
-                            
-                            <?php
-                            }
-                            ?>
-                            
-                            <b>Categorie : </b><?php echo " "; echo $data['Categorie']; ?><br>
-                            
-                            <b>Prix : </b><?php echo " "; echo $data['Prix']; ?>€<br>
-                            
-                            <b>Type de vente : </b><?php echo " "; echo $data['Typedevente']; ?> <br>
-                            
-                            <i><?php echo $data['Description']; ?></i>
-                            
-                            
-                            <br>
-                   
-                            <?php
-                            if(!empty($data['Video']))
-                            {
-                            ?>
-                                 <a href="article/video/<?php echo $data['Video']; ?>">Vidéo descriptive</a>
-                            
 
-                            <?php
-                            }
-                            ?>
-                            
-                             <?php
-                            
-                            if(isset($_SESSION['id']) AND $vendeurinfo['id']==$_SESSION['id'])
-                            {
-                            ?>
-
-                                <a href="supprimerArticle.php?idart=<?php echo $data['id']; echo "&idvend="; echo $data['idVendeur']?>">Supprimer</a>
-
-                            <?php
-                            }
                             ?>
 
                         </div>
-                        
-                        <?php
-                        }
-                        $verifarticle->closeCursor();
-                        ?>
-                        
-                    </div>
+
+                        <input type="submit" name="okfond" value="OK" class="btnprofil"><br>
+
+                        </form>
+
                     
+                     
+                    </div>
                 </div>
-           
-            </div>            
+                
+            </div>
+            <?php
+            }
+            ?>
+            
+            <div class="infoA">
+            
+                <br><br><center><h3><u>Articles actuellement en vente</u></h3></center><br><br>
+
+                <div class="row content">
+                    <div class="scroll-bar-wrap">
+                        <div class="scroll-box">
+                            <div class="col-sm-12">
+                                <div class="row">
+
+
+                                    <?php
+                                    while($data = $verifarticle->fetch())
+                                    {
+                                    ?>
+                                    <div class="col-sm-3 article">
+
+                                        <h5> <?php echo " "; echo $data['Nom']; ?><br></h5>
+
+                                        <?php 
+
+                                            if(!empty($data['Photo']))
+                                            {
+                                        ?>
+                                                <img src="article/photo/<?php echo $data['Photo'];"" ?>" style="width:100%">
+
+                                        <?php
+
+                                            }
+                                            else
+                                            {
+                                        ?>
+
+                                            <img src="https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061132_960_720.png" width="103%" >
+
+                                        <?php
+                                        }
+                                        ?>
+
+                                        <b>Categorie : </b><?php echo " "; echo $data['Categorie']; ?><br>
+
+                                        <b>Prix : </b><?php echo " "; echo $data['Prix']; ?>€<br>
+
+                                        <b>Type de vente : </b><?php echo " "; echo $data['Typedevente']; ?> <br>
+
+                                        <i><?php echo $data['Description']; ?></i>
+
+
+                                        <br>
+
+                                        <?php
+                                        if(!empty($data['Video']))
+                                        {
+                                        ?>
+                                             <a href="article/video/<?php echo $data['Video']; ?>">Vidéo descriptive</a>
+
+
+                                        <?php
+                                        }
+                                        ?>
+
+                                         <?php
+
+                                        if(isset($_SESSION['id']) AND $vendeurinfo['id']==$_SESSION['id'])
+                                        {
+                                        ?>
+
+                                            <a href="supprimerArticle.php?idart=<?php echo $data['id']; echo "&idvend="; echo $data['idVendeur']?>">Supprimer</a>
+
+                                        <?php
+                                        }
+                                        ?>
+
+                                        <br><br><br>
+
+                                    </div>
+
+                                    <?php
+                                    }
+                                    $verifarticle->closeCursor();
+                                    ?>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div> 
+            </div>
         </div>
         
         

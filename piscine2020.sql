@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 19 avr. 2020 à 20:41
+-- Généré le :  lun. 20 avr. 2020 à 11:42
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -94,17 +94,22 @@ CREATE TABLE IF NOT EXISTS `article` (
   `Video` varchar(255) NOT NULL,
   `idAcheteur` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=188 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=203 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `article`
 --
 
 INSERT INTO `article` (`id`, `Nom`, `Categorie`, `Prix`, `Typedevente`, `Description`, `idVendeur`, `Photo`, `Video`, `idAcheteur`) VALUES
-(177, 'Chaise en bois', 'Ferraille ou Tresor', 1200, 'Achat immediat', 'Joli Gremy sauvage', 8, '177.jpg', '', ''),
-(187, 'Hilt', 'Ferraille ou Tresor', 1400, 'Bon pour Musee', 'Jolie petite chaise en bois', 8, '175.png', '', ''),
-(185, 'Vase en cristal', 'Accessoire VIP', 5400, 'Achat immediat', 'Rare vas en cristal', 8, '', '', ''),
-(181, 'Boite en or', 'Bon pour Musee', 1800, 'Negociation', 'Petite boite en or 24 carats', 8, '', '', '');
+(202, 'EpÃ©e d\'Ulfberht', 'Bon pour Musee', 32400, 'Achat immediat', 'Objet d\'une raretÃ© sans prÃ©cÃ©dent', 9, '202.jpg', '202.mp4', ''),
+(201, 'MÃ©canisme d\'anticitaire', 'Bon pour Musee', 470, 'Achat immediat', 'PiÃ¨ce d\'origine retrouvÃ©e dans les fond marins', 9, '201.jpg', '201.mp4', ''),
+(200, 'DodÃ©caÃ¨dre', 'Bon pour Musee', 11400, 'Achat immediat', 'DodÃ©caÃ¨dre romain original', 8, '199.jpg', '199.mp4', ''),
+(192, 'Louis d\'Or', 'Accessoire VIP', 5480, 'Achat immediat', 'Louis d\'or de 1704', 8, '192.jpg', '', ''),
+(197, 'Jeu de clÃ©s', 'Ferraille ou Tresor', 210, 'Achat immediat', 'Jeu de clÃ©s dÃ©coratives en fer forgÃ©', 8, '197.jpg', '', ''),
+(193, 'Chaise en bois - Louis XV', 'Bon pour Musee', 2460, 'Achat immediat', 'Chaise Louis XV CannÃ©e', 8, '193.jpg', '', ''),
+(194, 'Vase en Cristal', 'Ferraille ou Tresor', 540, 'Achat immediat', 'Vase en cristal Bohemia - 27cm', 8, '194.jpg', '', ''),
+(195, 'Boite en or', 'Accessoire VIP', 3600, 'Achat immediat', 'Boite en or - 24 carats', 8, '195.jpg', '', ''),
+(196, 'Paire de jumelles', 'Ferraille ou Tresor', 370, 'Achat immediat', 'Jumelles antique de marine', 8, '196.jpg', '', '');
 
 -- --------------------------------------------------------
 
@@ -127,7 +132,14 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `Video` varchar(255) NOT NULL,
   `Somme` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `panier`
+--
+
+INSERT INTO `panier` (`id`, `idAcheteur`, `idArticle`, `idVendeur`, `Nom`, `Categorie`, `Prix`, `Typedevente`, `Description`, `Photo`, `Video`, `Somme`) VALUES
+(54, 38, 198, 8, 'Sysmographe de Zang Heng', 'Accessoire VIP', 1540, 'Achat immediat', 'Sysmographe selon Zang Heng', '198.jpg', '198.mp4', '');
 
 -- --------------------------------------------------------
 
@@ -152,7 +164,6 @@ CREATE TABLE IF NOT EXISTS `vendeur` (
 --
 
 INSERT INTO `vendeur` (`id`, `Pseudo`, `Nom`, `Prenom`, `Email`, `Profil`, `Fond`) VALUES
-(10, 'illyas', 'Boudjemai', 'Illyas', 'illyas.boudjemai@edu.ece.fr', '', ''),
 (8, 'micka', 'Gremy', 'Mickael', 'mickagremy@outlook.com', '8.gif', '8.png'),
 (9, 'flo', 'Hilt', 'Florian', 'florian.hilt@edu.ece.fr', '', '');
 COMMIT;
