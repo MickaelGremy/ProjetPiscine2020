@@ -236,18 +236,26 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
             </div>
         </div>
         
+        
+        
+        <center>
+        
+            
         <?php
         if(!empty($affichertotal['Somme']))
         {
         ?>
         
-        <center>
-        
-        <a href="confirmerCommande.php?id=<?php echo $_SESSION['id']?>">        <input type="submit"  name="confirmation" value="Je confirme ma commande"></a>
+        <a href="mail.php<?php
+                    
+        echo "?idacht="; echo $_SESSION['id'];?>">        
+            
+        <input type="submit"  name="confirmation" value="Je confirme ma commande"></a>
 
         </center>
         
         <?php
+            
         }
         ?>
        
